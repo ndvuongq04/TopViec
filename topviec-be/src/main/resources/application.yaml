@@ -1,0 +1,12 @@
+spring:
+  application:
+    name: topviec-be
+  profiles:
+    active: ${SPRING_PROFILE:dev}
+
+server:
+  port: 8080
+  servlet:
+    context-path: /api/v1
+
+

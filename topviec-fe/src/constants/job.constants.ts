@@ -1,0 +1,1 @@
+// Hằng số - JOB_STATUS, JOB_TYPE, EXPERIENCE
