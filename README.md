@@ -89,22 +89,38 @@ Các tài khoản dưới đây được seed từ backend trong `DataInitialize
 
 ## Architecture Overview
 
-```text
-Browser
-  |
-  | HTTP / JSON / multipart form-data
-  v
-Vue 3 SPA (topviec-fe)
-  |
-  | REST API, Bearer access token, HttpOnly refresh cookie
-  v
-Spring Boot API (topviec-be, /api/v1)
-  |
-  +-- MySQL: users, companies, jobs, applications, orders, logs
-  +-- Redis: verify email token, reset password token, refresh/session support
-  +-- Local uploads volume: CV, avatar, logo, cover, business license
-  +-- SMTP: email verification, password reset, interview notifications
-  +-- VNPAY: payment URL, IPN, payment return
+```mermaid
+flowchart LR
+    Users["Ứng viên / Nhà tuyển dụng / Admin"]
+    FE["Vue 3 + Vite frontend"]
+    API["Spring Boot REST API<br/>/api/v1"]
+
+    DB[("MySQL 8.0<br/>users, companies, jobs,<br/>applications, orders, logs")]
+    Redis[("Redis 7<br/>verify/reset token,<br/>refresh session")]
+    Uploads["Local uploads volume<br/>CV, avatar, logo, cover,<br/>business license"]
+    SMTP["Gmail SMTP<br/>email verification,<br/>password reset, interview mail"]
+    VNPAY["VNPAY<br/>payment URL, IPN,<br/>payment return"]
+
+    S3["AWS S3 static website"]
+    EC2["EC2 + Docker Compose"]
+
+    Users --> FE
+    FE -->|"REST API / JSON / multipart"| API
+    API --> DB
+    API --> Redis
+    API --> Uploads
+    API --> SMTP
+    API --> VNPAY
+    FE -. deploy .-> S3
+    API -. deploy .-> EC2
+
+    classDef app fill:#eef2ff,stroke:#8b5cf6,color:#111827;
+    classDef service fill:#f8fafc,stroke:#94a3b8,color:#111827;
+    classDef datastore fill:#ede9fe,stroke:#8b5cf6,color:#111827;
+
+    class Users,FE,API app;
+    class DB,Redis datastore;
+    class Uploads,SMTP,VNPAY,S3,EC2 service;
 ```
 
 ## Repository Structure
