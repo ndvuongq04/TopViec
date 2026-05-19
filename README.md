@@ -29,7 +29,7 @@ Repository này là repo tổng/overview của hệ thống. Source code đượ
 
 ## Demo Accounts
 
-Các tài khoản dưới đây được seed từ backend trong `DataInitializer`. Hiện repo chỉ có tài khoản quản trị viên cố định; tài khoản nhà tuyển dụng và ứng viên sẽ được bổ sung sau.
+Các tài khoản dưới đây được seed từ backend trong `DataInitializer`.
 
 | Role           | Email                   | Password | Permission / Note                            |
 | -------------- | ----------------------- | -------- | -------------------------------------------- |
@@ -37,8 +37,11 @@ Các tài khoản dưới đây được seed từ backend trong `DataInitialize
 | Quản trị viên  | `moderator@topviec.vn`  | `123456` | `content_moderator` - kiểm duyệt nội dung    |
 | Quản trị viên  | `support@topviec.vn`    | `123456` | `support_admin` - hỗ trợ vận hành            |
 | Quản trị viên  | `finance@topviec.vn`    | `123456` | `finance_admin` - quản lý tài chính/đơn hàng |
-| Nhà tuyển dụng | Chưa có                 | Chưa có  | Chưa có seed cố định trong BE                |
-| Ứng viên       | Chưa có                 | Chưa có  | Chưa có seed cố định trong BE                |
+| Ứng viên       | `candidate@topviec.vn`  | `123456` | Tài khoản ứng viên                           |
+| Nhà tuyển dụng | `employer19@topviec.vn` | `123456` | `owner`                                      |
+| Nhà tuyển dụng | `manager@topviec.vn`    | `123456` | `manager`                                    |
+| Nhà tuyển dụng | `recruiter@topviec.vn`  | `123456` | `recruiter`                                  |
+| Nhà tuyển dụng | `viewer@topviec.vn`     | `123456` | `viewer`                                     |
 
 ## Main Features
 
