@@ -1,0 +1,154 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://topviec.local/schemas/cv-online-extra-data.schema.json",
+  "title": "CvOnlineExtraData",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "personalInfo": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "fullName": { "type": "string", "maxLength": 255 },
+        "headline": { "type": "string", "maxLength": 255 },
+        "email": { "type": "string", "maxLength": 255 },
+        "phone": { "type": "string", "maxLength": 50 },
+        "address": { "type": "string", "maxLength": 255 },
+        "city": { "type": "string", "maxLength": 255 },
+        "country": { "type": "string", "maxLength": 255 },
+        "website": { "type": "string", "maxLength": 255 },
+        "linkedin": { "type": "string", "maxLength": 255 },
+        "github": { "type": "string", "maxLength": 255 }
+      }
+    },
+    "careerObjective": {
+      "type": "string",
+      "maxLength": 3000
+    },
+    "experiences": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "jobTitle": { "type": "string", "maxLength": 255 },
+          "company": { "type": "string", "maxLength": 255 },
+          "location": { "type": "string", "maxLength": 255 },
+          "startDate": { "type": "string", "maxLength": 50 },
+          "endDate": { "type": "string", "maxLength": 50 },
+          "isCurrent": { "type": "boolean" },
+          "description": { "type": "string", "maxLength": 4000 }
+        }
+      }
+    },
+    "educations": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "school": { "type": "string", "maxLength": 255 },
+          "degree": { "type": "string", "maxLength": 255 },
+          "fieldOfStudy": { "type": "string", "maxLength": 255 },
+          "startDate": { "type": "string", "maxLength": 50 },
+          "endDate": { "type": "string", "maxLength": 50 },
+          "description": { "type": "string", "maxLength": 4000 }
+        }
+      }
+    },
+    "skills": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "name": { "type": "string", "maxLength": 255 },
+          "level": { "type": "string", "maxLength": 100 },
+          "description": { "type": "string", "maxLength": 1000 }
+        }
+      }
+    },
+    "certifications": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "name": { "type": "string", "maxLength": 255 },
+          "issuer": { "type": "string", "maxLength": 255 },
+          "issuedAt": { "type": "string", "maxLength": 50 },
+          "expiresAt": { "type": "string", "maxLength": 50 },
+          "credentialId": { "type": "string", "maxLength": 255 },
+          "credentialUrl": { "type": "string", "maxLength": 255 },
+          "description": { "type": "string", "maxLength": 2000 }
+        }
+      }
+    },
+    "languages": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "name": { "type": "string", "maxLength": 255 },
+          "level": { "type": "string", "maxLength": 100 },
+          "certificate": { "type": "string", "maxLength": 255 }
+        }
+      }
+    },
+    "projects": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "name": { "type": "string", "maxLength": 255 },
+          "role": { "type": "string", "maxLength": 255 },
+          "organization": { "type": "string", "maxLength": 255 },
+          "startDate": { "type": "string", "maxLength": 50 },
+          "endDate": { "type": "string", "maxLength": 50 },
+          "projectUrl": { "type": "string", "maxLength": 255 },
+          "description": { "type": "string", "maxLength": 4000 }
+        }
+      }
+    },
+    "hobbies": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "name": { "type": "string", "maxLength": 255 },
+          "description": { "type": "string", "maxLength": 1000 }
+        }
+      }
+    },
+    "awards": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "title": { "type": "string", "maxLength": 255 },
+          "issuer": { "type": "string", "maxLength": 255 },
+          "awardedAt": { "type": "string", "maxLength": 50 },
+          "description": { "type": "string", "maxLength": 2000 }
+        }
+      }
+    },
+    "customSections": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "sectionTitle": { "type": "string", "maxLength": 255 },
+          "itemTitle": { "type": "string", "maxLength": 255 },
+          "itemSubtitle": { "type": "string", "maxLength": 255 },
+          "itemMeta": { "type": "string", "maxLength": 255 },
+          "description": { "type": "string", "maxLength": 4000 }
+        }
+      }
+    }
+  }
+}

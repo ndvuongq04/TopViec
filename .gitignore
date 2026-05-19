@@ -1,0 +1,98 @@
+# ========================
+# Frontend (Node.js/Vue 3)
+# ========================
+node_modules/
+dist/
+dist-ssr/
+*.local
+.npm/
+.pnpm-store/
+.vite/
+.cache/
+coverage/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+*.tsbuildinfo
+.eslintcache
+
+# ========================
+# Backend (Java/Spring Boot)
+# ========================
+.gradle/
+target/
+build/
+bin/
+out/
+.mvn/
+*.log
+*.class
+*.jar
+!**/gradle/wrapper/gradle-wrapper.jar
+*.war
+*.ear
+
+# ========================
+# Runtime Generated Files
+# ========================
+logs/
+uploads/
+*.pid
+
+# ========================
+# IDEs & Editors
+# ========================
+.idea/
+.vscode/
+*.iml
+*.iws
+*.ipr
+.settings/
+.classpath
+.project
+.factorypath
+
+# ========================
+# OS Generated Files
+# ========================
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# ========================
+# Environment Variables & Secrets
+# ========================
+.env
+.env.*
+!.env.example
+!.env.*.example
+.envrc
+*.pem
+*.key
+*.crt
+*.cer
+*.p12
+*.pfx
+*.jks
+*.keystore
+*.secret
+secrets/
+**/application-local.yml
+**/application-*.local.yml
+
+# ========================
+# Docker / Local Data
+# ========================
+docker-compose.override.yml
+docker-compose.*.override.yml
+mysql_data/
+redis_data/
+uploads_data/
+*.dump
+*.bak
+*.sql.gz

@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="vi" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tin tuyển dụng bị khiếu nại</title>
+    <style>
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background-color: #f6f9fc; margin: 0; padding: 0; color: #333333; }
+        .container { max-width: 600px; margin: 40px auto; background-color: #ffffff; border-radius: 8px; overflow: hidden; box-shadow: 0 4px 6px rgba(0,0,0,0.05); }
+        .header { background-color: #e67e22; color: white; padding: 30px 20px; text-align: center; }
+        .header h1 { margin: 0; font-size: 22px; font-weight: 600; }
+        .content { padding: 30px 40px; line-height: 1.7; }
+        .content p { margin-bottom: 16px; font-size: 15px; }
+        .highlight-box { background-color: #fff8f3; border-left: 4px solid #e67e22; padding: 15px 20px; margin: 20px 0; border-radius: 0 4px 4px 0; }
+        .highlight-box table { width: 100%; border-collapse: collapse; }
+        .highlight-box table td { padding: 7px 0; font-size: 15px; }
+        .highlight-box table td:first-child { color: #555; width: 40%; }
+        .badge { display: inline-block; background-color: #e67e22; color: white; padding: 3px 10px; border-radius: 12px; font-size: 13px; }
+        .deadline { color: #c0392b; font-weight: 700; }
+        .btn-container { text-align: center; margin: 28px 0 10px; }
+        .btn { display: inline-block; background-color: #00b14f; color: #ffffff; text-decoration: none; padding: 12px 32px; border-radius: 4px; font-weight: 600; font-size: 15px; }
+        .notice-box { background-color: #f8f9fa; border: 1px solid #dee2e6; border-radius: 6px; padding: 16px 20px; margin: 24px 0; font-size: 14px; color: #555; }
+        .footer { background-color: #f8f9fa; padding: 20px; text-align: center; font-size: 13px; color: #6c757d; border-top: 1px solid #e9ecef; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>⚠ Tin tuyển dụng của bạn bị khiếu nại</h1>
+        </div>
+
+        <div class="content">
+            <p>Chào bạn,</p>
+            <p>Hệ thống Topviec vừa nhận được một khiếu nại liên quan đến tin tuyển dụng của bạn và đã được xác nhận là hợp lệ bởi đội ngũ kiểm duyệt.</p>
+
+            <div class="highlight-box">
+                <table>
+                    <tr>
+                        <td>Mã khiếu nại:</td>
+                        <td><strong th:text="${reportCode}"></strong></td>
+                    </tr>
+                    <tr>
+                        <td>Tin tuyển dụng:</td>
+                        <td><strong th:text="${jobPostTitle}"></strong></td>
+                    </tr>
+                    <tr>
+                        <td>Lý do khiếu nại:</td>
+                        <td><span class="badge" th:text="${complaintType}"></span></td>
+                    </tr>
+                    <tr>
+                        <td>Thời hạn xử lý:</td>
+                        <td class="deadline" th:text="${deadline}"></td>
+                    </tr>
+                </table>
+            </div>
+
+            <p>Bạn cần <strong>chỉnh sửa và cập nhật tin tuyển dụng</strong> để khắc phục nội dung bị khiếu nại trước thời hạn trên. Sau khi sửa, vào mục quản lý khiếu nại và xác nhận đã sửa để đóng khiếu nại này.</p>
+            <p><strong>Nếu bạn không xử lý trước thời hạn</strong>, tin tuyển dụng sẽ tự động bị ẩn và điểm vi phạm sẽ được cộng vào tài khoản.</p>
+
+            <div class="btn-container">
+                <a th:href="${dashboardLink}" class="btn">Xem và xử lý khiếu nại</a>
+            </div>
+
+            <div class="notice-box">
+                <strong>Lưu ý:</strong> Nếu bạn cho rằng nội dung khiếu nại này <strong>không chính xác</strong>, bạn có thể gửi kháng cáo sau khi khiếu nại được xử lý.
+                Hãy <strong>liên hệ với chúng tôi</strong> qua email <a href="mailto:support@topviec.vn">support@topviec.vn</a> nếu cần hỗ trợ hoặc giải đáp thêm.
+            </div>
+
+            <p>Trân trọng,<br><strong>Đội ngũ Topviec</strong></p>
+        </div>
+
+        <div class="footer">
+            <p>Đây là email tự động từ hệ thống Topviec. Vui lòng không trả lời email này.</p>
+            <p>&copy; 2026 Topviec. All rights reserved.</p>
+        </div>
+    </div>
+</body>
+</html>

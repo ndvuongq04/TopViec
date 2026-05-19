@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="vi" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thông báo phân công tin tuyển dụng</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f6f9fc;
+            margin: 0;
+            padding: 0;
+            color: #333333;
+        }
+        .container {
+            max-width: 600px;
+            margin: 40px auto;
+            background-color: #ffffff;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+        }
+        .header {
+            background-color: #00b14f;
+            color: white;
+            padding: 30px 20px;
+            text-align: center;
+        }
+        .header .icon {
+            font-size: 36px;
+            margin-bottom: 10px;
+        }
+        .header h1 {
+            margin: 0;
+            font-size: 22px;
+            font-weight: 600;
+        }
+        .header p {
+            margin: 8px 0 0;
+            font-size: 14px;
+            opacity: 0.85;
+        }
+        .content {
+            padding: 30px 40px;
+            line-height: 1.6;
+        }
+        .content p {
+            margin-bottom: 16px;
+            font-size: 15px;
+        }
+        .highlight-box {
+            background-color: #f8f9fa;
+            border-left: 4px solid #00b14f;
+            padding: 15px 20px;
+            margin: 20px 0;
+            border-radius: 0 4px 4px 0;
+        }
+        .highlight-box table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        .highlight-box table td {
+            padding: 7px 0;
+            font-size: 14px;
+            vertical-align: top;
+        }
+        .highlight-box table td:first-child {
+            width: 38%;
+            color: #555;
+            font-weight: 600;
+        }
+        .highlight-box table td:last-child {
+            color: #222;
+        }
+        .job-title-box {
+            background-color: #e8f5e9;
+            border: 1px solid #a5d6a7;
+            border-radius: 6px;
+            padding: 12px 16px;
+            margin: 16px 0;
+            font-size: 16px;
+            font-weight: 600;
+            color: #1b5e20;
+        }
+        .note-box {
+            background-color: #fff8e1;
+            border-left: 4px solid #ffc107;
+            padding: 10px 16px;
+            margin: 16px 0;
+            border-radius: 0 4px 4px 0;
+            font-size: 14px;
+            color: #5d4037;
+        }
+        .badge-reassign {
+            display: inline-block;
+            background-color: #fff3e0;
+            color: #e65100;
+            border: 1px solid #ffcc80;
+            padding: 3px 10px;
+            border-radius: 12px;
+            font-size: 12px;
+            font-weight: 600;
+            margin-bottom: 14px;
+        }
+        .badge-assign {
+            display: inline-block;
+            background-color: #e8f5e9;
+            color: #2e7d32;
+            border: 1px solid #a5d6a7;
+            padding: 3px 10px;
+            border-radius: 12px;
+            font-size: 12px;
+            font-weight: 600;
+            margin-bottom: 14px;
+        }
+        .btn-container {
+            text-align: center;
+            margin: 28px 0 10px;
+        }
+        .btn {
+            display: inline-block;
+            background-color: #00b14f;
+            color: #ffffff;
+            text-decoration: none;
+            padding: 12px 32px;
+            border-radius: 5px;
+            font-weight: 600;
+            font-size: 15px;
+        }
+        .footer {
+            background-color: #f8f9fa;
+            padding: 20px;
+            text-align: center;
+            font-size: 13px;
+            color: #6c757d;
+            border-top: 1px solid #e9ecef;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <div class="icon">📋</div>
+            <h1 th:if="${isReassign}">Đổi phân công tin tuyển dụng</h1>
+            <h1 th:unless="${isReassign}">Phân công tin tuyển dụng mới</h1>
+            <p th:text="${companyName}">Tên công ty</p>
+        </div>
+
+        <div class="content">
+            <p>Chào bạn,</p>
+
+            <span class="badge-reassign" th:if="${isReassign}">🔄 Đổi phân công</span>
+            <span class="badge-assign" th:unless="${isReassign}">✅ Phân công mới</span>
+
+            <p th:if="${isReassign}">
+                Bạn vừa được <strong>đổi phân công</strong> quản lý tin tuyển dụng sau tại công ty
+                <strong th:text="${companyName}">Tên công ty</strong>:
+            </p>
+            <p th:unless="${isReassign}">
+                Bạn vừa được <strong>phân công</strong> quản lý tin tuyển dụng sau tại công ty
+                <strong th:text="${companyName}">Tên công ty</strong>:
+            </p>
+
+            <div class="job-title-box" th:text="${jobTitle}">Tên tin tuyển dụng</div>
+
+            <div class="highlight-box">
+                <table>
+                    <tr>
+                        <td>Người phân công:</td>
+                        <td th:text="${assignedByEmail}">manager@company.com</td>
+                    </tr>
+                    <tr>
+                        <td>Thời điểm:</td>
+                        <td th:text="${assignedAt}">10:00 - 06/05/2026</td>
+                    </tr>
+                </table>
+            </div>
+
+            <div class="note-box" th:if="${note != null and !#strings.isEmpty(note)}">
+                <strong>📝 Ghi chú từ người phân công:</strong><br>
+                <span th:text="${note}">Nội dung ghi chú...</span>
+            </div>
+
+            <p>Vui lòng đăng nhập vào hệ thống để xem chi tiết và bắt đầu quản lý tin tuyển dụng được giao.</p>
+
+            <div class="btn-container">
+                <a th:href="${dashboardLink}" class="btn">Xem tin được phân công</a>
+            </div>
+
+            <p>Trân trọng,<br>
+            <strong>Đội ngũ Topviec</strong></p>
+        </div>
+
+        <div class="footer">
+            <p>Đây là email tự động từ hệ thống Topviec. Vui lòng không trả lời email này.</p>
+            <p>&copy; 2026 Topviec. All rights reserved.</p>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,9 @@
+export const FILE_UPLOAD_TYPE = {
+  CV: 'CV',
+  AVATAR: 'AVATAR',
+  COMPANY_LOGO: 'COMPANY_LOGO',
+  COMPANY_COVER: 'COMPANY_COVER',
+  BUSINESS_LICENSE: 'BUSINESS_LICENSE',
+} as const
+
+export type FileUploadType = (typeof FILE_UPLOAD_TYPE)[keyof typeof FILE_UPLOAD_TYPE]

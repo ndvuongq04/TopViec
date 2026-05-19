@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="vi" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thông báo thu hồi phân công tin tuyển dụng</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f6f9fc;
+            margin: 0;
+            padding: 0;
+            color: #333333;
+        }
+        .container {
+            max-width: 600px;
+            margin: 40px auto;
+            background-color: #ffffff;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+        }
+        .header {
+            background-color: #e53935;
+            color: white;
+            padding: 30px 20px;
+            text-align: center;
+        }
+        .header .icon {
+            font-size: 36px;
+            margin-bottom: 10px;
+        }
+        .header h1 {
+            margin: 0;
+            font-size: 22px;
+            font-weight: 600;
+        }
+        .header p {
+            margin: 8px 0 0;
+            font-size: 14px;
+            opacity: 0.85;
+        }
+        .content {
+            padding: 30px 40px;
+            line-height: 1.6;
+        }
+        .content p {
+            margin-bottom: 16px;
+            font-size: 15px;
+        }
+        .highlight-box {
+            background-color: #f8f9fa;
+            border-left: 4px solid #e53935;
+            padding: 15px 20px;
+            margin: 20px 0;
+            border-radius: 0 4px 4px 0;
+        }
+        .highlight-box table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        .highlight-box table td {
+            padding: 7px 0;
+            font-size: 14px;
+            vertical-align: top;
+        }
+        .highlight-box table td:first-child {
+            width: 38%;
+            color: #555;
+            font-weight: 600;
+        }
+        .highlight-box table td:last-child {
+            color: #222;
+        }
+        .job-title-box {
+            background-color: #fce4ec;
+            border: 1px solid #f48fb1;
+            border-radius: 6px;
+            padding: 12px 16px;
+            margin: 16px 0;
+            font-size: 16px;
+            font-weight: 600;
+            color: #880e4f;
+        }
+        .note-box {
+            background-color: #fff8e1;
+            border-left: 4px solid #ffc107;
+            padding: 10px 16px;
+            margin: 16px 0;
+            border-radius: 0 4px 4px 0;
+            font-size: 14px;
+            color: #5d4037;
+        }
+        .badge-revoked {
+            display: inline-block;
+            background-color: #fce4ec;
+            color: #c62828;
+            border: 1px solid #ef9a9a;
+            padding: 3px 10px;
+            border-radius: 12px;
+            font-size: 12px;
+            font-weight: 600;
+            margin-bottom: 14px;
+        }
+        .footer {
+            background-color: #f8f9fa;
+            padding: 20px;
+            text-align: center;
+            font-size: 13px;
+            color: #6c757d;
+            border-top: 1px solid #e9ecef;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <div class="icon">🔔</div>
+            <h1>Thu hồi phân công tin tuyển dụng</h1>
+            <p th:text="${companyName}">Tên công ty</p>
+        </div>
+
+        <div class="content">
+            <p>Chào bạn,</p>
+
+            <span class="badge-revoked">❌ Thu hồi phân công</span>
+
+            <p>
+                Phân công quản lý tin tuyển dụng dưới đây của bạn tại công ty
+                <strong th:text="${companyName}">Tên công ty</strong>
+                vừa bị <strong>thu hồi</strong>:
+            </p>
+
+            <div class="job-title-box" th:text="${jobTitle}">Tên tin tuyển dụng</div>
+
+            <div class="highlight-box">
+                <table>
+                    <tr>
+                        <td>Người thu hồi:</td>
+                        <td th:text="${revokedByEmail}">manager@company.com</td>
+                    </tr>
+                    <tr>
+                        <td>Thời điểm:</td>
+                        <td th:text="${revokedAt}">10:00 - 06/05/2026</td>
+                    </tr>
+                </table>
+            </div>
+
+            <div class="note-box" th:if="${note != null and !#strings.isEmpty(note)}">
+                <strong>📝 Lý do thu hồi:</strong><br>
+                <span th:text="${note}">Nội dung ghi chú...</span>
+            </div>
+
+            <p>Nếu bạn có thắc mắc về quyết định này, vui lòng liên hệ trực tiếp với Owner hoặc Manager của công ty.</p>
+
+            <p>Trân trọng,<br>
+            <strong>Đội ngũ Topviec</strong></p>
+        </div>
+
+        <div class="footer">
+            <p>Đây là email tự động từ hệ thống Topviec. Vui lòng không trả lời email này.</p>
+            <p>&copy; 2026 Topviec. All rights reserved.</p>
+        </div>
+    </div>
+</body>
+</html>

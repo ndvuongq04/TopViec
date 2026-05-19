@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="vi" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>Chọn lịch phỏng vấn</title>
+    <!--[if mso]>
+    <noscript>
+        <xml>
+            <o:OfficeDocumentSettings>
+                <o:PixelsPerInch>96</o:PixelsPerInch>
+            </o:OfficeDocumentSettings>
+        </xml>
+    </noscript>
+    <![endif]-->
+    <style>
+        body,
+        table,
+        td,
+        p,
+        a,
+        li,
+        blockquote {
+            -webkit-text-size-adjust: 100%;
+            -ms-text-size-adjust: 100%;
+        }
+
+        table,
+        td {
+            mso-table-lspace: 0pt;
+            mso-table-rspace: 0pt;
+        }
+
+        img {
+            -ms-interpolation-mode: bicubic;
+            border: 0;
+            outline: none;
+            text-decoration: none;
+        }
+
+        body {
+            margin: 0 !important;
+            padding: 0 !important;
+            background-color: #f9f9ff;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        a {
+            color: #1E88E5;
+        }
+
+        @media only screen and (max-width: 600px) {
+            .email-container {
+                width: 100% !important;
+            }
+
+            .mobile-padding {
+                padding: 0 16px 24px !important;
+            }
+
+            .mobile-header-padding {
+                padding: 20px 16px !important;
+            }
+
+            h1 {
+                font-size: 26px !important;
+            }
+        }
+    </style>
+</head>
+
+<body style="margin: 0; padding: 0; background-color: #f9f9ff;">
+
+    <!-- Outer wrapper -->
+    <table border="0" cellpadding="0" cellspacing="0" width="100%" style="background-color: #f9f9ff;">
+        <tr>
+            <td align="center" style="padding: 40px 20px;">
+
+                <!-- Email container -->
+                <table border="0" cellpadding="0" cellspacing="0" width="640" class="email-container"
+                    style="max-width: 640px; background-color: #ffffff; border-radius: 16px; overflow: hidden;">
+
+                    <!-- HEADER -->
+                    <tr>
+                        <td class="mobile-header-padding" style="padding: 32px 40px 24px;">
+                            <a href="#"
+                                style="font-size: 24px; font-weight: 800; color: #1E88E5; text-decoration: none; font-family: Arial, Helvetica, sans-serif; letter-spacing: -1px;">TopViec</a>
+                        </td>
+                    </tr>
+
+                    <!-- MAIN CONTENT -->
+                    <tr>
+                        <td class="mobile-padding" style="padding: 0 40px 40px;">
+
+                            <!-- Heading -->
+                            <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                                <tr>
+                                    <td style="padding-bottom: 28px;">
+                                        <h1
+                                            style="font-size: 30px; font-weight: 800; line-height: 1.25; color: #071b3b; margin: 0 0 16px 0; font-family: Arial, Helvetica, sans-serif; letter-spacing: -0.5px;">
+                                            &#128197; Chọn lịch<br />phỏng vấn của bạn
+                                        </h1>
+                                        <p
+                                            style="font-size: 15px; color: #404752; margin: 0; font-family: Arial, Helvetica, sans-serif; line-height: 1.6;">
+                                            Chào bạn <strong style="color: #071b3b;" th:text="${candidateName}">[Tên ứng
+                                                viên]</strong>,
+                                            nhà tuyển dụng <strong style="color: #071b3b;"
+                                                th:text="${companyName}">[Tên công ty]</strong>
+                                            đã tạo các khung giờ phỏng vấn cho vị trí
+                                            <strong style="color: #071b3b;" th:text="${jobTitle}">[Vị trí ứng
+                                                tuyển]</strong>.
+                                            Vui lòng chọn một khung giờ phù hợp với bạn trước thời hạn.
+                                        </p>
+                                    </td>
+                                </tr>
+                            </table>
+
+                            <!-- Info Box -->
+                            <table border="0" cellpadding="0" cellspacing="0" width="100%"
+                                style="background-color: #f1f3ff; border-radius: 12px; margin-bottom: 28px;">
+                                <tr>
+                                    <td style="padding: 28px;">
+
+                                        <!-- Round Name -->
+                                        <table border="0" cellpadding="0" cellspacing="0" width="100%"
+                                            style="margin-bottom: 20px;">
+                                            <tr>
+                                                <td valign="top" width="48" style="padding-right: 16px;">
+                                                    <table border="0" cellpadding="0" cellspacing="0">
+                                                        <tr>
+                                                            <td
+                                                                style="background-color: rgba(30,136,229,0.1); border-radius: 8px; padding: 10px; text-align: center;">
+                                                                <span
+                                                                    style="font-size: 22px; line-height: 1;">&#127941;</span>
+                                                            </td>
+                                                        </tr>
+                                                    </table>
+                                                </td>
+                                                <td valign="middle">
+                                                    <p
+                                                        style="font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px; color: #404752; margin: 0 0 3px 0; font-family: Arial, Helvetica, sans-serif;">
+                                                        Vòng phỏng vấn
+                                                    </p>
+                                                    <p style="font-size: 15px; font-weight: 600; color: #071b3b; margin: 0; font-family: Arial, Helvetica, sans-serif;"
+                                                        th:text="${roundName}">
+                                                        Vòng 1 - Phỏng vấn kỹ thuật
+                                                    </p>
+                                                </td>
+                                            </tr>
+                                        </table>
+
+                                        <!-- Divider -->
+                                        <table border="0" cellpadding="0" cellspacing="0" width="100%"
+                                            style="margin-bottom: 20px;">
+                                            <tr>
+                                                <td height="1"
+                                                    style="background-color: rgba(0,0,0,0.08); line-height: 1px; font-size: 1px;">
+                                                    &nbsp;</td>
+                                            </tr>
+                                        </table>
+
+                                        <!-- Deadline -->
+                                        <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                                            <tr>
+                                                <td valign="top" width="48" style="padding-right: 16px;">
+                                                    <table border="0" cellpadding="0" cellspacing="0">
+                                                        <tr>
+                                                            <td
+                                                                style="background-color: rgba(239,68,68,0.1); border-radius: 8px; padding: 10px; text-align: center;">
+                                                                <span
+                                                                    style="font-size: 22px; line-height: 1;">&#9201;</span>
+                                                            </td>
+                                                        </tr>
+                                                    </table>
+                                                </td>
+                                                <td valign="middle">
+                                                    <p
+                                                        style="font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px; color: #404752; margin: 0 0 3px 0; font-family: Arial, Helvetica, sans-serif;">
+                                                        Hạn chót đăng ký
+                                                    </p>
+                                                    <p style="font-size: 15px; font-weight: 700; color: #ef4444; margin: 0; font-family: Arial, Helvetica, sans-serif;"
+                                                        th:text="${deadline}">
+                                                        17:00, 30/04/2025
+                                                    </p>
+                                                </td>
+                                            </tr>
+                                        </table>
+
+                                    </td>
+                                </tr>
+                            </table>
+
+                            <!-- CTA Button -->
+                            <table border="0" cellpadding="0" cellspacing="0" width="100%"
+                                style="margin-bottom: 28px;">
+                                <tr>
+                                    <td align="center">
+                                        <a th:href="${selectSlotLink}" href="#"
+                                            style="display: inline-block; background-color: #1E88E5; color: #ffffff; font-size: 16px; font-weight: 700; text-align: center; text-decoration: none; padding: 18px 40px; border-radius: 12px; font-family: Arial, Helvetica, sans-serif;">
+                                            &#128197; Chọn lịch phỏng vấn ngay
+                                        </a>
+                                    </td>
+                                </tr>
+                            </table>
+
+                            <!-- Note -->
+                            <table border="0" cellpadding="0" cellspacing="0" width="100%"
+                                style="background-color: #fffbeb; border: 1px solid #fde68a; border-radius: 12px;">
+                                <tr>
+                                    <td style="padding: 16px 20px;">
+                                        <p
+                                            style="font-size: 13px; color: #92400e; margin: 0; font-family: Arial, Helvetica, sans-serif; line-height: 1.6;">
+                                            <strong>&#9888; Lưu ý:</strong> Link chọn lịch này chỉ dành cho bạn và sẽ
+                                            hết hạn vào thời điểm hạn chót đăng ký. Mỗi ứng viên chỉ được chọn một
+                                            khung giờ duy nhất.
+                                        </p>
+                                    </td>
+                                </tr>
+                            </table>
+
+                        </td>
+                    </tr>
+
+                    <!-- FOOTER -->
+                    <tr>
+                        <td
+                            style="padding: 36px 40px; background-color: #fcfcff; border-top: 1px solid rgba(0,0,0,0.08); text-align: center;">
+
+                            <p
+                                style="font-size: 14px; color: #404752; margin: 0 0 20px 0; font-family: Arial, Helvetica, sans-serif; line-height: 1.6;">
+                                Nếu bạn có thắc mắc, vui lòng liên hệ với chúng tôi qua
+                                <a href="#" style="color: #1E88E5; font-weight: 600; text-decoration: none;">Trung tâm
+                                    Trợ giúp</a>.
+                            </p>
+
+                            <!-- Divider -->
+                            <table border="0" cellpadding="0" cellspacing="0" align="center"
+                                style="margin: 0 auto 20px auto;">
+                                <tr>
+                                    <td width="40" height="1"
+                                        style="background-color: rgba(0,0,0,0.08); line-height: 1px; font-size: 1px;">
+                                        &nbsp;</td>
+                                </tr>
+                            </table>
+
+                            <p
+                                style="font-size: 12px; color: #94a3b8; margin: 0 0 16px 0; font-family: Arial, Helvetica, sans-serif;">
+                                &copy; 2024 TopViec Editorial Recruitment. All rights reserved.
+                            </p>
+
+                            <table border="0" cellpadding="0" cellspacing="0" align="center">
+                                <tr>
+                                    <td style="padding: 0 8px;">
+                                        <a href="#"
+                                            style="font-size: 12px; font-weight: 600; color: #64748b; text-decoration: none; font-family: Arial, Helvetica, sans-serif;">Privacy
+                                            Policy</a>
+                                    </td>
+                                    <td style="color: #94a3b8; font-size: 12px;">&#183;</td>
+                                    <td style="padding: 0 8px;">
+                                        <a href="#"
+                                            style="font-size: 12px; font-weight: 600; color: #64748b; text-decoration: none; font-family: Arial, Helvetica, sans-serif;">Terms
+                                            of Service</a>
+                                    </td>
+                                    <td style="color: #94a3b8; font-size: 12px;">&#183;</td>
+                                    <td style="padding: 0 8px;">
+                                        <a href="#"
+                                            style="font-size: 12px; font-weight: 600; color: #64748b; text-decoration: none; font-family: Arial, Helvetica, sans-serif;">Unsubscribe</a>
+                                    </td>
+                                </tr>
+                            </table>
+
+                        </td>
+                    </tr>
+
+                </table>
+                <!-- End email container -->
+
+            </td>
+        </tr>
+    </table>
+
+</body>
+
+</html>

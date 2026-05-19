@@ -1,0 +1,77 @@
+services:
+  mysql:
+    image: mysql:8.0
+    container_name: topviec-mysql
+    restart: unless-stopped
+    environment:
+      MYSQL_ROOT_PASSWORD: ${DB_ROOT_PASSWORD}
+      MYSQL_DATABASE: topviec_db
+      MYSQL_USER: ${DB_USERNAME}
+      MYSQL_PASSWORD: ${DB_PASSWORD}
+    ports:
+      - "3307:3306"
+    volumes:
+      - mysql_data:/var/lib/mysql
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  redis:
+    image: redis:7-alpine
+    container_name: topviec-redis
+    restart: unless-stopped
+    command: redis-server --requirepass ${REDIS_PASSWORD}
+    ports:
+      - "6379:6379"
+    volumes:
+      - redis_data:/data
+
+  backend:
+    image: nguyendinhvuong/topviec-be:latest
+    container_name: topviec-backend
+    restart: unless-stopped
+    env_file:
+      - ${BACKEND_ENV_FILE:-.env.docker}
+    ports:
+      - "8080:8080"
+    depends_on:
+      mysql:
+        condition: service_healthy
+      redis:
+        condition: service_started
+    environment:
+      SPRING_PROFILE: prod
+
+      DB_URL: jdbc:mysql://mysql:3306/topviec_db?useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=Asia/Ho_Chi_Minh
+      DB_USERNAME: ${DB_USERNAME}
+      DB_PASSWORD: ${DB_PASSWORD}
+
+      REDIS_HOST: redis
+      REDIS_PORT: 6379
+      REDIS_PASSWORD: ${REDIS_PASSWORD}
+
+      JWT_SECRET: ${JWT_SECRET}
+      JWT_ACCESS_TOKEN_EXPIRATION: ${JWT_ACCESS_TOKEN_EXPIRATION:-900000}
+      JWT_REFRESH_TOKEN_EXPIRATION: ${JWT_REFRESH_TOKEN_EXPIRATION:-604800000}
+
+      MAIL_USERNAME: ${MAIL_USERNAME}
+      MAIL_PASSWORD: ${MAIL_PASSWORD}
+
+      VNPAY_TMN_CODE: ${VNPAY_TMN_CODE}
+      VNPAY_HASH_SECRET: ${VNPAY_HASH_SECRET}
+      VNPAY_RETURN_URL: ${VNPAY_RETURN_URL}
+      VNPAY_FRONTEND_RETURN_URL: ${VNPAY_FRONTEND_RETURN_URL}
+
+      APP_BASE_URL: ${APP_BASE_URL}
+
+      UPLOAD_DIR: /app/uploads
+      STORAGE_BASE_URL: ${STORAGE_BASE_URL}
+    volumes:
+      - uploads_data:/app/uploads
+
+volumes:
+  mysql_data:
+  redis_data:
+  uploads_data:

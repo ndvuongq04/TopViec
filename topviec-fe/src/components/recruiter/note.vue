@@ -1,0 +1,1 @@
+<!-- Components dành cho RECRUITER (register/, job/...) ở thư mục này -->

@@ -1,0 +1,130 @@
+<!-- member-invite-new-user.html -->
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="vi">
+
+<head>
+    <meta charset="UTF-8" />
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: 40px auto;
+            background: #fff;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .header {
+            background: #4F46E5;
+            padding: 32px;
+            text-align: center;
+        }
+
+        .header h1 {
+            color: #fff;
+            margin: 0;
+            font-size: 24px;
+        }
+
+        .body {
+            padding: 32px;
+        }
+
+        .body p {
+            color: #555;
+            line-height: 1.6;
+        }
+
+        .btn {
+            display: inline-block;
+            margin: 24px 0;
+            padding: 14px 32px;
+            background: #4F46E5;
+            color: #fff !important;
+            text-decoration: none;
+            border-radius: 6px;
+            font-weight: bold;
+        }
+
+        .info-box {
+            background: #f0f0ff;
+            border-left: 4px solid #4F46E5;
+            padding: 16px 20px;
+            border-radius: 4px;
+            margin: 20px 0;
+        }
+
+        .info-box p {
+            margin: 4px 0;
+            color: #333;
+        }
+
+        .warning {
+            color: #e67e22;
+            font-weight: bold;
+        }
+
+        .footer {
+            background: #f9f9f9;
+            padding: 16px 32px;
+            text-align: center;
+            color: #aaa;
+            font-size: 12px;
+            border-top: 1px solid #eee;
+        }
+
+        .highlight {
+            color: #4F46E5;
+            font-weight: bold;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+
+        <div class="header">
+            <h1>Bạn được mời tham gia Topviec!</h1>
+        </div>
+
+        <div class="body">
+            <p>Xin chào,</p>
+            <p>Bạn đã được mời tham gia vào một công ty trên <span class="highlight">Topviec</span>. Vui lòng xác thực email để kích hoạt tài khoản.</p>
+
+            <div class="info-box">
+                <p><strong>Thông tin đăng nhập tạm thời:</strong></p>
+                <p>Email: <span class="highlight" th:text="${email}">email@example.com</span></p>
+                <p>Mật khẩu tạm: <strong th:text="${tempPassword}">password123</strong></p>
+            </div>
+
+            <p class="warning">⚠️ Vui lòng đổi mật khẩu ngay sau khi đăng nhập lần đầu!</p>
+
+            <p>Click vào nút bên dưới để xác thực email và kích hoạt tài khoản:</p>
+
+            <div style="text-align:center;">
+                <a th:href="${verifyLink}" class="btn">Xác thực & Kích hoạt tài khoản</a>
+            </div>
+
+            <p>Hoặc copy link sau vào trình duyệt:</p>
+            <p style="word-break:break-all; color:#888; font-size:13px;" th:text="${verifyLink}"></p>
+
+            <p>Link có hiệu lực trong <strong>24 giờ</strong>.</p>
+            <p>Nếu bạn không mong đợi lời mời này, hãy bỏ qua email này.</p>
+        </div>
+
+        <div class="footer">
+            <p>© 2025 Topviec. Tất cả quyền được bảo lưu.</p>
+            <p>Email này được gửi tự động, vui lòng không reply.</p>
+        </div>
+
+    </div>
+</body>
+
+</html>

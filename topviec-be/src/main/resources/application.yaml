@@ -3,10 +3,82 @@ spring:
     name: topviec-be
   profiles:
     active: ${SPRING_PROFILE:dev}
+  mail:
+    host: ${MAIL_HOST:smtp.gmail.com}
+    port: ${MAIL_PORT:587}
+    username: ${MAIL_USERNAME}
+    password: ${MAIL_PASSWORD}
+    properties:
+      mail:
+        smtp:
+          auth: true
+          starttls:
+            enable: true
+  # check log hibernate SQL
+  # jpa:
+  #   hibernate:
+  #     ddl-auto: update
+  #   show-sql: true
+  #   properties:
+  #     hibernate:
+  #       format_sql: true
+  # logging:
+  #   level:
+  #     org:
+  #       hibernate:
+  #         SQL: DEBUG
+  #         type:
+  #           descriptor:
+  #             sql:
+  #               BasicBinder: TRACE
+  data:
+    redis:
+      host: ${REDIS_HOST:localhost} # đọc từ .env, fallback là localhost
+      port: ${REDIS_PORT:6379}
+      password: ${REDIS_PASSWORD:} # fallback rỗng = không có password
+      database: ${REDIS_DATABASE:0}
+      timeout: ${REDIS_TIMEOUT:2000ms}
+      lettuce:
+        pool:
+          max-active: ${REDIS_POOL_MAX_ACTIVE:8}
+          max-idle: ${REDIS_POOL_MAX_IDLE:8}
+          min-idle: ${REDIS_POOL_MIN_IDLE:2}
+          max-wait: ${REDIS_POOL_MAX_WAIT:-1ms}
 
 server:
   port: 8080
   servlet:
     context-path: /api/v1
 
+app:
+  jwt:
+    secret: ${JWT_SECRET}
+    access-token-expiration: ${JWT_ACCESS_TOKEN_EXPIRATION:900000} # 15 phút (ms)
+    refresh-token-expiration: ${JWT_REFRESH_TOKEN_EXPIRATION:604800000} # 7 ngày (ms)
+  token:
+    verify-email-ttl: ${VERIFY_EMAIL_TTL:1440} # 24 giờ (phút)
+    reset-password-ttl: ${RESET_PASSWORD_TTL:15} # 15 phút
+    verify-email-prefix: ${VERIFY_EMAIL_PREFIX:verify-email}
+    reset-password-prefix: ${RESET_PASSWORD_PREFIX:reset-password}
+    interview-reminder-prefix: ${INTERVIEW_REMINDER_PREFIX:interview:reminder:}
+    interview-update-ttl: ${INTERVIEW_UPDATE_TTL:7} # ngày
+    talent-pool-invite-ttl: ${TALENT_POOL_INVITE_TTL:7} # ngày
+  base-url: ${APP_BASE_URL:http://localhost:5173}
+  verify-email-url: ${APP_VERIFY_EMAIL_URL:http://localhost:5173/verify-email}
+  reset-password-url: ${APP_RESET_PASSWORD_URL:http://localhost:5173/reset-password}
+  confirm-interview-url: ${APP_CONFIRM_INTERVIEW_URL:http://localhost:5173/interview-confirm-update}
+  slot-selection-url: ${APP_SLOT_SELECTION_URL:http://localhost:5173/interview-select-slot}
+  talent-pool-invite-url: ${APP_TALENT_POOL_INVITE_URL:http://localhost:5173/talent-pool-invite}
+
+  storage:
+    upload-dir: ${UPLOAD_DIR:uploads}
+    base-url: ${STORAGE_BASE_URL:http://localhost:8080/api/v1/files}
+
+vnpay:
+  tmn-code: ${VNPAY_TMN_CODE}
+  hash-secret: ${VNPAY_HASH_SECRET}
+  pay-url: ${VNPAY_PAY_URL:https://sandbox.vnpayment.vn/paymentv2/vpcpay.html}
+  api-url: ${VNPAY_API_URL:https://sandbox.vnpayment.vn/merchant_webapi/api/transaction}
+  return-url: ${VNPAY_RETURN_URL:http://localhost:8080/api/v1/payment/vnpay/return}
+  frontend-return-url: ${VNPAY_FRONTEND_RETURN_URL:http://localhost:5173/payment/result}
 

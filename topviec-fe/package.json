@@ -5,12 +5,17 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "vue-tsc -b && vite build",
+    "typecheck": "vue-tsc --noEmit -p tsconfig.app.json",
+    "build": "vite build",
     "preview": "vite preview"
   },
   "dependencies": {
     "@tanstack/vue-query": "^5.92.9",
+    "@tiptap/extension-color": "^3.23.4",
     "@tiptap/extension-placeholder": "^3.20.1",
+    "@tiptap/extension-text-align": "^3.23.4",
+    "@tiptap/extension-text-style": "^3.23.4",
+    "@tiptap/extension-underline": "^3.23.4",
     "@tiptap/starter-kit": "^3.20.1",
     "@tiptap/vue-3": "^3.20.1",
     "@vee-validate/zod": "^4.15.1",
@@ -28,6 +33,7 @@
     "zod": "^3.25.76"
   },
   "devDependencies": {
+    "@tailwindcss/forms": "^0.5.11",
     "@tailwindcss/vite": "^4.2.1",
     "@types/node": "^24.10.1",
     "@vitejs/plugin-vue": "^6.0.2",
@@ -39,5 +45,6 @@
     "typescript": "~5.9.3",
     "vite": "^7.3.1",
     "vue-tsc": "^3.1.5"
-  }
+  },
+  "packageManager": "yarn@1.22.22+sha512.a6b2f7906b721bba3d67d4aff083df04dad64c399707841b7acf00f6b133b7ac24255f2652fa22ae3534329dc6180534e98d17432037ff6fd140556e2bb3137e"
 }

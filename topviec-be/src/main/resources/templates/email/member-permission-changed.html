@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="vi" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cập nhật phân quyền thành viên</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f6f9fc;
+            margin: 0;
+            padding: 0;
+            color: #333333;
+        }
+        .container {
+            max-width: 600px;
+            margin: 40px auto;
+            background-color: #ffffff;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+        }
+        .header {
+            background-color: #00b14f;
+            color: white;
+            padding: 30px 20px;
+            text-align: center;
+        }
+        .header h1 {
+            margin: 0;
+            font-size: 24px;
+            font-weight: 600;
+        }
+        .content {
+            padding: 30px 40px;
+            line-height: 1.6;
+        }
+        .content p {
+            margin-bottom: 20px;
+            font-size: 16px;
+        }
+        .content strong {
+            color: #000;
+        }
+        .highlight-box {
+            background-color: #f8f9fa;
+            border-left: 4px solid #00b14f;
+            padding: 15px 20px;
+            margin: 25px 0;
+            border-radius: 0 4px 4px 0;
+        }
+        .highlight-box table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        .highlight-box table td {
+            padding: 8px 0;
+        }
+        .bg-light {
+            background-color: #f1f3f5;
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-family: monospace;
+            font-size: 15px;
+        }
+        .btn-container {
+            text-align: center;
+            margin: 35px 0 15px;
+        }
+        .btn {
+            display: inline-block;
+            background-color: #00b14f;
+            color: #ffffff;
+            text-decoration: none;
+            padding: 12px 30px;
+            border-radius: 4px;
+            font-weight: 600;
+            font-size: 16px;
+        }
+        .footer {
+            background-color: #f8f9fa;
+            padding: 20px;
+            text-align: center;
+            font-size: 14px;
+            color: #6c757d;
+            border-top: 1px solid #e9ecef;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Cập nhật phân quyền Topviec</h1>
+        </div>
+        
+        <div class="content">
+            <p>Chào bạn,</p>
+            <p>Quyền hạn của bạn tại công ty <strong><span th:text="${companyName}">[Tên công ty]</span></strong> vừa được cập nhật bởi quản trị viên.</p>
+            
+            <div class="highlight-box">
+                <table>
+                    <tr>
+                        <td width="30%"><strong>Vai trò hiện tại:</strong></td>
+                        <td><span class="bg-light" th:text="${newRoleName}">[Vai trò mới]</span></td>
+                    </tr>
+                </table>
+            </div>
+
+            <p>Thay đổi này đã có hiệu lực ngay lập tức. Đăng nhập vào hệ thống để trải nghiệm công việc với vai trò mới của bạn.</p>
+
+            <div class="btn-container">
+                <a href="${baseUrl}/login" class="btn">Đăng nhập ngay</a>
+            </div>
+            
+            <p>Nếu bạn có bất kỳ thắc mắc nào về quyền hạn mới, vui lòng liên hệ trực tiếp với Owner hoặc Admin của công ty để được giải đáp.</p>
+            
+            <p>Trân trọng,<br>
+            <strong>Đội ngũ Topviec</strong></p>
+        </div>
+        
+        <div class="footer">
+            <p>Đây là email tự động từ hệ thống Topviec. Vui lòng không trả lời email này.</p>
+            <p>&copy; 2026 Topviec. All rights reserved.</p>
+        </div>
+    </div>
+</body>
+</html>

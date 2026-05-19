@@ -1,7 +1,6 @@
 <template>
-  <div>Hello from TopViec - ForgotPasswordPage</div>
+  <ForgotPasswordForm />
 </template>
-
 <script setup lang="ts">
-// ForgotPasswordPage - Trang quên mật khẩu
-</script>
+import ForgotPasswordForm from '@/components/auth/ForgotPasswordForm.vue'
+</script> 

@@ -12,6 +12,11 @@ node_modules
 dist
 dist-ssr
 *.local
+.vite
+.cache
+coverage
+*.tsbuildinfo
+.eslintcache
 
 # Editor directories and files
 .vscode/*
@@ -29,3 +34,26 @@ dist-ssr
 .env.development
 .env.production
 .env.staging
+.env.*
+!.env.example
+!.env.*.example
+.envrc
+*.pem
+*.key
+*.crt
+*.cer
+*.p12
+*.pfx
+*.jks
+*.keystore
+*.secret
+secrets/
+
+# LLM Skills Guide (Do not sync with Git)
+skill-font.md
+skill-Progressive_Disclosure.md
+skill-dropdown.md
+skill-Pagination.md
+skill-designer.md
+
+docs/

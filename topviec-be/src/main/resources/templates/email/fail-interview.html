@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="vi" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>Kết quả phỏng vấn</title>
+    <!--[if mso]>
+    <noscript>
+        <xml>
+            <o:OfficeDocumentSettings>
+                <o:PixelsPerInch>96</o:PixelsPerInch>
+            </o:OfficeDocumentSettings>
+        </xml>
+    </noscript>
+    <![endif]-->
+    <style>
+        body, table, td, p, a, li, blockquote {
+            -webkit-text-size-adjust: 100%;
+            -ms-text-size-adjust: 100%;
+        }
+        table, td { mso-table-lspace: 0pt; mso-table-rspace: 0pt; }
+        img { -ms-interpolation-mode: bicubic; border: 0; outline: none; text-decoration: none; }
+        body { margin: 0 !important; padding: 0 !important; background-color: #f9f9ff; font-family: Arial, Helvetica, sans-serif; }
+        a { color: #1E88E5; }
+
+        @media only screen and (max-width: 600px) {
+            .email-container { width: 100% !important; }
+            .mobile-padding { padding: 0 16px 24px !important; }
+            .mobile-header-padding { padding: 20px 16px !important; }
+            h1 { font-size: 26px !important; }
+        }
+    </style>
+</head>
+
+<body style="margin: 0; padding: 0; background-color: #f9f9ff;">
+
+    <table border="0" cellpadding="0" cellspacing="0" width="100%" style="background-color: #f9f9ff;">
+        <tr>
+            <td align="center" style="padding: 40px 20px;">
+
+                <table border="0" cellpadding="0" cellspacing="0" width="640" class="email-container"
+                    style="max-width: 640px; background-color: #ffffff; border-radius: 16px; overflow: hidden;">
+
+                    <!-- HEADER -->
+                    <tr>
+                        <td class="mobile-header-padding" style="padding: 32px 40px 24px;">
+                            <a href="#"
+                                style="font-size: 24px; font-weight: 800; color: #1E88E5; text-decoration: none; font-family: Arial, Helvetica, sans-serif; letter-spacing: -1px;">TopViec</a>
+                        </td>
+                    </tr>
+
+                    <!-- MAIN CONTENT -->
+                    <tr>
+                        <td class="mobile-padding" style="padding: 0 40px 40px;">
+
+                            <!-- Heading -->
+                            <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                                <tr>
+                                    <td style="padding-bottom: 32px;">
+                                        <h1
+                                            style="font-size: 32px; font-weight: 800; line-height: 1.25; color: #071b3b; margin: 0 0 16px 0; font-family: Arial, Helvetica, sans-serif; letter-spacing: -0.5px;">
+                                            Thông báo kết quả<br />phỏng vấn
+                                        </h1>
+                                        <p
+                                            style="font-size: 15px; color: #404752; margin: 0; font-family: Arial, Helvetica, sans-serif; line-height: 1.6;">
+                                            Chào bạn <strong style="color: #071b3b;" th:text="${candidateName}">[Tên ứng viên]</strong>,
+                                            cảm ơn bạn đã dành thời gian tham gia phỏng vấn tại
+                                            <strong style="color: #071b3b;" th:text="${companyName}">[Tên công ty]</strong>
+                                            cho vị trí <strong style="color: #071b3b;" th:text="${jobTitle}">[Tên vị trí]</strong>.
+                                        </p>
+                                    </td>
+                                </tr>
+                            </table>
+
+                            <!-- Result Card -->
+                            <table border="0" cellpadding="0" cellspacing="0" width="100%" style="margin-bottom: 28px;">
+                                <tr>
+                                    <td style="background-color: #fff4f4; border: 2px solid #ef4444; border-radius: 12px; padding: 24px; text-align: center;">
+                                        <p style="font-size: 36px; margin: 0 0 8px 0; line-height: 1;">&#128533;</p>
+                                        <p style="font-size: 18px; font-weight: 800; color: #ef4444; margin: 0 0 6px 0; font-family: Arial, Helvetica, sans-serif;">
+                                            Rất tiếc, bạn chưa vượt qua vòng này
+                                        </p>
+                                        <p style="font-size: 14px; color: #64748b; margin: 0; font-family: Arial, Helvetica, sans-serif;"
+                                            th:text="${roundName}">
+                                            Vòng 1
+                                        </p>
+                                    </td>
+                                </tr>
+                            </table>
+
+                            <!-- Info Box -->
+                            <table border="0" cellpadding="0" cellspacing="0" width="100%"
+                                style="background-color: #f1f3ff; border-radius: 12px; margin-bottom: 28px;">
+                                <tr>
+                                    <td style="padding: 28px;">
+
+                                        <!-- Vị trí -->
+                                        <table border="0" cellpadding="0" cellspacing="0" width="100%" style="margin-bottom: 20px;">
+                                            <tr>
+                                                <td valign="top" width="48" style="padding-right: 16px;">
+                                                    <table border="0" cellpadding="0" cellspacing="0">
+                                                        <tr>
+                                                            <td style="background-color: rgba(30,136,229,0.1); border-radius: 8px; padding: 10px; text-align: center;">
+                                                                <span style="font-size: 22px; line-height: 1;">&#128188;</span>
+                                                            </td>
+                                                        </tr>
+                                                    </table>
+                                                </td>
+                                                <td valign="middle">
+                                                    <p style="font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px; color: #404752; margin: 0 0 3px 0; font-family: Arial, Helvetica, sans-serif;">
+                                                        Vị trí ứng tuyển
+                                                    </p>
+                                                    <p style="font-size: 15px; font-weight: 600; color: #071b3b; margin: 0; font-family: Arial, Helvetica, sans-serif;"
+                                                        th:text="${jobTitle}">[Tên vị trí]</p>
+                                                </td>
+                                            </tr>
+                                        </table>
+
+                                        <!-- Divider -->
+                                        <table border="0" cellpadding="0" cellspacing="0" width="100%" style="margin-bottom: 20px;">
+                                            <tr>
+                                                <td height="1" style="background-color: rgba(0,0,0,0.08); line-height: 1px; font-size: 1px;">&nbsp;</td>
+                                            </tr>
+                                        </table>
+
+                                        <!-- Công ty -->
+                                        <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                                            <tr>
+                                                <td valign="top" width="48" style="padding-right: 16px;">
+                                                    <table border="0" cellpadding="0" cellspacing="0">
+                                                        <tr>
+                                                            <td style="background-color: rgba(30,136,229,0.1); border-radius: 8px; padding: 10px; text-align: center;">
+                                                                <span style="font-size: 22px; line-height: 1;">&#127970;</span>
+                                                            </td>
+                                                        </tr>
+                                                    </table>
+                                                </td>
+                                                <td valign="middle">
+                                                    <p style="font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px; color: #404752; margin: 0 0 3px 0; font-family: Arial, Helvetica, sans-serif;">
+                                                        Nhà tuyển dụng
+                                                    </p>
+                                                    <p style="font-size: 15px; font-weight: 600; color: #071b3b; margin: 0; font-family: Arial, Helvetica, sans-serif;"
+                                                        th:text="${companyName}">[Tên công ty]</p>
+                                                </td>
+                                            </tr>
+                                        </table>
+
+                                        <!-- Điểm đánh giá (nếu có) -->
+                                        <div th:if="${rating != null}">
+                                            <table border="0" cellpadding="0" cellspacing="0" width="100%"
+                                                style="margin-top: 20px;">
+                                                <tr>
+                                                    <td height="1" style="background-color: rgba(0,0,0,0.08); line-height: 1px; font-size: 1px;">&nbsp;</td>
+                                                </tr>
+                                            </table>
+                                            <table border="0" cellpadding="0" cellspacing="0" width="100%" style="margin-top: 20px;">
+                                                <tr>
+                                                    <td valign="top" width="48" style="padding-right: 16px;">
+                                                        <table border="0" cellpadding="0" cellspacing="0">
+                                                            <tr>
+                                                                <td style="background-color: rgba(30,136,229,0.1); border-radius: 8px; padding: 10px; text-align: center;">
+                                                                    <span style="font-size: 22px; line-height: 1;">&#11088;</span>
+                                                                </td>
+                                                            </tr>
+                                                        </table>
+                                                    </td>
+                                                    <td valign="middle">
+                                                        <p style="font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px; color: #404752; margin: 0 0 3px 0; font-family: Arial, Helvetica, sans-serif;">
+                                                            Điểm đánh giá
+                                                        </p>
+                                                        <p style="font-size: 15px; font-weight: 600; color: #071b3b; margin: 0; font-family: Arial, Helvetica, sans-serif;"
+                                                            th:text="${rating} + ' / 5'">4 / 5</p>
+                                                    </td>
+                                                </tr>
+                                            </table>
+                                        </div>
+
+                                        <!-- Ghi chú nhận xét (nếu có) -->
+                                        <div th:if="${note != null and !#strings.isEmpty(note)}">
+                                            <table border="0" cellpadding="0" cellspacing="0" width="100%"
+                                                style="margin-top: 20px;">
+                                                <tr>
+                                                    <td height="1" style="background-color: rgba(0,0,0,0.08); line-height: 1px; font-size: 1px;">&nbsp;</td>
+                                                </tr>
+                                            </table>
+                                            <table border="0" cellpadding="0" cellspacing="0" width="100%" style="margin-top: 20px;">
+                                                <tr>
+                                                    <td valign="top" width="48" style="padding-right: 16px;">
+                                                        <table border="0" cellpadding="0" cellspacing="0">
+                                                            <tr>
+                                                                <td style="background-color: rgba(30,136,229,0.1); border-radius: 8px; padding: 10px; text-align: center;">
+                                                                    <span style="font-size: 22px; line-height: 1;">&#128221;</span>
+                                                                </td>
+                                                            </tr>
+                                                        </table>
+                                                    </td>
+                                                    <td valign="middle">
+                                                        <p style="font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px; color: #404752; margin: 0 0 3px 0; font-family: Arial, Helvetica, sans-serif;">
+                                                            Nhận xét
+                                                        </p>
+                                                        <p style="font-size: 15px; color: #404752; margin: 0; font-family: Arial, Helvetica, sans-serif; line-height: 1.6;"
+                                                            th:text="${note}">[Nội dung nhận xét]</p>
+                                                    </td>
+                                                </tr>
+                                            </table>
+                                        </div>
+
+                                    </td>
+                                </tr>
+                            </table>
+
+                            <!-- Closing message -->
+                            <p style="font-size: 14px; color: #64748b; margin: 0; font-family: Arial, Helvetica, sans-serif; line-height: 1.6;">
+                                Đây không phải là kết thúc — hãy tiếp tục tìm kiếm cơ hội phù hợp với bạn trên <strong style="color: #1E88E5;">TopViec</strong>.
+                                Chúc bạn thành công trên con đường sự nghiệp!
+                            </p>
+
+                        </td>
+                    </tr>
+
+                    <!-- FOOTER -->
+                    <tr>
+                        <td style="padding: 36px 40px; background-color: #fcfcff; border-top: 1px solid rgba(0,0,0,0.08); text-align: center;">
+                            <p style="font-size: 14px; color: #404752; margin: 0 0 20px 0; font-family: Arial, Helvetica, sans-serif; line-height: 1.6;">
+                                Nếu bạn có thắc mắc, vui lòng liên hệ với chúng tôi qua
+                                <a href="#" style="color: #1E88E5; font-weight: 600; text-decoration: none;">Trung tâm Trợ giúp</a>.
+                            </p>
+                            <table border="0" cellpadding="0" cellspacing="0" align="center" style="margin: 0 auto 20px auto;">
+                                <tr>
+                                    <td width="40" height="1" style="background-color: rgba(0,0,0,0.08); line-height: 1px; font-size: 1px;">&nbsp;</td>
+                                </tr>
+                            </table>
+                            <p style="font-size: 12px; color: #94a3b8; margin: 0 0 16px 0; font-family: Arial, Helvetica, sans-serif;">
+                                &copy; 2024 TopViec Editorial Recruitment. All rights reserved.
+                            </p>
+                            <table border="0" cellpadding="0" cellspacing="0" align="center">
+                                <tr>
+                                    <td style="padding: 0 8px;">
+                                        <a href="#" style="font-size: 12px; font-weight: 600; color: #64748b; text-decoration: none; font-family: Arial, Helvetica, sans-serif;">Privacy Policy</a>
+                                    </td>
+                                    <td style="color: #94a3b8; font-size: 12px;">&#183;</td>
+                                    <td style="padding: 0 8px;">
+                                        <a href="#" style="font-size: 12px; font-weight: 600; color: #64748b; text-decoration: none; font-family: Arial, Helvetica, sans-serif;">Terms of Service</a>
+                                    </td>
+                                    <td style="color: #94a3b8; font-size: 12px;">&#183;</td>
+                                    <td style="padding: 0 8px;">
+                                        <a href="#" style="font-size: 12px; font-weight: 600; color: #64748b; text-decoration: none; font-family: Arial, Helvetica, sans-serif;">Unsubscribe</a>
+                                    </td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+
+                </table>
+            </td>
+        </tr>
+    </table>
+
+</body>
+</html>

@@ -1,1 +1,0 @@
-// Company routes - list, detail
