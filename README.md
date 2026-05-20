@@ -37,7 +37,7 @@ Các tài khoản dưới đây được seed từ backend trong `DataInitialize
 | Quản trị viên  | `moderator@topviec.vn`  | `123456` | `content_moderator` - kiểm duyệt nội dung    |
 | Quản trị viên  | `support@topviec.vn`    | `123456` | `support_admin` - hỗ trợ vận hành            |
 | Quản trị viên  | `finance@topviec.vn`    | `123456` | `finance_admin` - quản lý tài chính/đơn hàng |
-| Ứng viên       | `candidate@topviec.vn`  | `123456` | Tài khoản ứng viên                           |
+| Ứng viên       | `candidate01@topviec.vn`  | `123456` | Tài khoản ứng viên                           |
 | Nhà tuyển dụng | `employer19@topviec.vn` | `123456` | `owner`                                      |
 | Nhà tuyển dụng | `manager@topviec.vn`    | `123456` | `manager`                                    |
 | Nhà tuyển dụng | `recruiter@topviec.vn`  | `123456` | `recruiter`                                  |
